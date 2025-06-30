@@ -49,6 +49,10 @@ def v(x):
  dx = (xmax- xmin) / N
  x = np.linspace(xmin, xmax, N+1)
 
+ # Setting up the Hamiltonian matrix (diagonal and off-diagonal elements)
+ pdiag = 1 / dx**2 + (m / (hcut**2)) * v(x[1:-1]) # Avoid singularity at r = 0
+ sdiag = (-1 / (2 * dx**2)) * np.ones(len(pdiag)- 1)
+
  # Solving the eigenvalue problem
 
  val, vec = sp.eigh_tridiagonal(pdiag, sdiag)
