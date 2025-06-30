@@ -59,11 +59,6 @@ def v(x):
 
  # Convert eigenvalues to physical units
 
- # Setting up the Hamiltonian matrix (diagonal and off-diagonal elements)
-
- pdiag = 1 / dx**2 + (m / (hcut**2)) * v(x[1:-1]) # Avoid singularity at r = 0
- sdiag = (-1 / (2 * dx**2)) * np.ones(len(pdiag)- 1)
-
  for i1 in range (3):
    eigval1 = (val[i1] * hcut**2) / m
    eigval11 = round(eigval1,2)
